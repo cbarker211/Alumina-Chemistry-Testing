@@ -117,6 +117,24 @@ AlF2:
   Formula: Al
   Fullname: Aluminium on dust, Reff = 1.4 microns
   MW_g: 26.98
+AL2O3:
+  FullName: Alumina
+  Formula: AL2O3
+  MW_g: 101.96
+  Is_Aerosol: true
+  Is_DryDep: true
+  Is_WetDep: true
+  Is_HygroGrowth: true
+  Density: 3970.0
+  Is_Advected: true
+  Radius: 1.4e-7
+  DD_DvzMinVal: [0.01, 0.01]
+  DD_DvzAerSnow: 0.03
+  DD_F0: 0.0
+  DD_Hstar: 0.0
+  WD_AerScavEff: 1.0
+  WD_KcScaleFac: [1.0, 1.0, 1.0]
+  WD_RainoutEff: [1.0, 1.0, 0.0]
 ALD2:
   DD_F0: 1.0
   DD_Hstar: 1.1e+1

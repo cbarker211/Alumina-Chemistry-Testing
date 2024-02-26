@@ -1,0 +1,619 @@
+*************   S T A R T I N G   G E O S - C H E M   *************
+
+===> Mode of operation         : GEOS-Chem "Classic"
+===> GEOS-Chem version         : 14.3.0
+===> Compiler                  : GNU Fortran compiler (aka gfortran)
+===> Flexible precision set to : 8-byte real (aka REAL*8)
+===> Parallelization w/ OpenMP : ON
+===> Binary punch diagnostics  : OFF
+===> netCDF diagnostics        : ON
+===> netCDF file compression   : SUPPORTED
+===> Luo et al (2019) wetdep?  : OFF
+
+===> SIMULATION START TIME: 2024/02/22 15:28 <===
+
+===============================================================================
+G E O S - C H E M   U S E R   I N P U T
+
+READ_INPUT_FILE: Opening ./geoschem_config.yml
+
+SIMULATION SETTINGS
+-------------------
+Simulation name             : fullchem
+CHEM_INPUTS directory       : /shared/ucl/depts/uptrop/uclgcfs/gcgrid/gcdata/ExtData/CHEM_INPUTS/
+Species database file       : ./species_database.yml
+Turn on verbose output      :     F
+Verbose output printed on   : root core only
+Start time of run           : 20200101 000000
+End time of run             : 20200102 000000
+Data Directory              : /shared/ucl/depts/uptrop/uclgcfs/gcgrid/gcdata/ExtData/
+Meteorology field           : MERRA2
+Turn on GEOS-Chem timers    :     F
+
+GRID SETTINGS
+------------
+Grid resolution             : 4.0x5.0
+Min/max longitude           :  -180.0000   180.0000
+Min/max latitude            :   -90.0000    90.0000
+X grid dimension            :    72
+Y grid dimension            :    46
+Z grid dimension            :    47
+Use half-sized polar boxes? :     T
+Center on Intl Date Line?   :     T
+Is this a nested-grid sim?  :     F
+ --> Buffer zone (N S E W ) :     0    0    0    0
+
+TIMESTEP SETTINGS
+-----------------
+Transport/Convection [sec]  :   600
+Chemistry/Emissions  [sec]  :  1200
+RRTMG rad transfer   [sec]  : 10800
+
+TRANSPORT SETTINGS
+------------------
+Turn on transport?          :     T
+Let TPCORE Fill negatives?  :     T
+IORD, JORD, KORD for TPCORE?:     3    3    7
+
+CONVECTION SETTINGS
+-------------------
+Turn on cloud convection?   :     T
+
+PBL MIXING SETTINGS
+-------------------
+Turn on PBL mixing?         :     T
+Turn on non-local PBL?      :     T
+
+AEROSOL SETTINGS
+----------------
+Online SULFATE AEROSOLS?    :     T
+Metal catalyzed SO2 ox.?    :     T
+Online CARBON AEROSOLS?     :     T
+Brown Carbon Aerosol?       :     F
+BC Absorption Enhancement?  :     T
+Hydrophilic BC AE factor    :     1.50
+Hydrophobic BC AE factor    :     1.00
+Online COMPLEX SOA?         :     F
+Semivolatile POA?           :     F
+Online DUST AEROSOLS?       :     T
+Acid uptake on dust?        :     F
+Online SEA SALT AEROSOLS?   :     T
+Accum  SEA SALT radii [um]  :     0.01 -     0.50
+Coarse SEA SALT radii [um]  :     0.50 -     8.00
+MARINE ORGANIC AEROSOLS?    :     F
+Settle strat. aerosols?     :     T
+Online SOLID PSC aerosols?  :     T
+Allow hom. NAT nucleation?  :     F
+NAT supercooling requirement:     3.00K
+Ice supersaturation req.    :    20.00K
+Perform PSC het. chemistry? :     T
+Use strat. aerosol OD?      :     T
+
+DRY DEPOSITION SETTINGS
+-----------------------
+Turn on dry deposition?     :     T
+Dry dep over full PBL?      :     F
+Turn on CO2 effect?         :     F
+CO2 level                   :   600.00
+CO2 reference level         :   380.00
+RIX scaling factor          :     1.00
+
+WET DEPOSITION SETTINGS
+-----------------------
+Turn on wet deposition?     :     T
+
+CHEMISTRY SETTINGS
+------------------
+Turn on chemistry?          :     T
+Use linear. mesospheric chem:     T
+ => Use Linoz for O3?       :     T
+Online strat. H2O?          :     T
+Use robust strat H2O BC?    :     T
+GAMMA HO2                   : 0.20
+Use auto-reduce solver?     :     F
+Use target species threshold:     T
+OH tuning factor:             5.0E-05
+NO2 tuning factor:            1.0E-04
+Keep halogen spec. active?  :     F
+Use append in auto-reduce?  :     F
+
+PHOTOLYSIS SETTINGS
+-------------------
+Turn on photolysis?         :     F
+FAST-JX input directory     : /shared/ucl/depts/uptrop/uclgcfs/gcgrid/gcdata/ExtData/CHEM_INPUTS/FAST_JX/v2021-10/
+Cloud-J input directory     : /home/ucfacb0/Scratch/CLOUD_J/
+Use online ozone?           :     T
+Use ozone from met?         :     T
+Use TOMS/SBUV ozone?        :     F
+Photolyse nitrate aerosol?  :     T
+JNITs scaling of JHNO3      :  100.000
+JNIT scaling of JHNO3       :  100.000
+JNIT(s) channel A (HONO)    :   66.667
+JNIT(s) channel B (NO2)     :   33.333
+
+NOTE ABOUT OVERHEAD O3 FOR FAST-JX:
+ Online O3 from GEOS-Chem will be used
+ to weight the O3 column within the
+ chemistry grid and O3 from met or TOMS
+ will be used outside the chemistry grid.
+
+RRTMG SETTINGS
+--------------
+AOD output wavelength (nm)  :   550.0
+Turn on radiation?          :     F
+Consider longwave?          :     F
+Consider shortwave?         :     F
+Clear-sky flux?             :     F
+All-sky flux?               :     F
+CO2 VMR in ppmv             :     T
+Fixed dyn. heat. assumption?:     F
+ --> Seasonal evolution?    :     F
+ --> Extend to TOA?         :     F
+ --> Read in dyn. heating?  :     F
+
+OBSPACK SETTINGS
+----------------
+Turn on ObsPack diagnostic? :     F
+Suppress logfile output?    :     F
+ObsPack input file          : ./obspack_co2_1_OCO2MIP_2018-11-28.YYYYMMDD.nc
+ObsPack output file         : ./OutputDir/GEOSChem.ObsPack.YYYYMMDD_hhmmz.nc4
+
+PLANEFLIGHT DIAGNOSTIC SETTINGS
+-------------------------------
+Turn on planeflight diag?   :     F
+Flight track input file     : Planeflight.dat.YYYYMMDD
+Output file name            : plane.log.YYYYMMDD
+
+TIMESTEPS SETTINGS
+------------------
+Chemistry  Timestep [sec]   :   1200
+Convection Timestep [sec]   :    600
+Dynamics   Timestep [sec]   :    600
+Emission   Timestep [sec]   :   1200
+Unit Conv  Timestep [sec]   :    600
+Diagnostic Timestep [sec]   :   1200
+Radiation  Timestep [sec]   :  10800
+
+%%%%%%%%%%%%%%% GLOBAL GRID %%%%%%%%%%%%%%%
+
+Grid box longitude centers [degrees]: 
+-180.00000 -175.00000 -170.00000 -165.00000 -160.00000 -155.00000 -150.00000
+-145.00000 -140.00000 -135.00000 -130.00000 -125.00000 -120.00000 -115.00000
+-110.00000 -105.00000 -100.00000  -95.00000  -90.00000  -85.00000  -80.00000
+ -75.00000  -70.00000  -65.00000  -60.00000  -55.00000  -50.00000  -45.00000
+ -40.00000  -35.00000  -30.00000  -25.00000  -20.00000  -15.00000  -10.00000
+  -5.00000    0.00000    5.00000   10.00000   15.00000   20.00000   25.00000
+  30.00000   35.00000   40.00000   45.00000   50.00000   55.00000   60.00000
+  65.00000   70.00000   75.00000   80.00000   85.00000   90.00000   95.00000
+ 100.00000  105.00000  110.00000  115.00000  120.00000  125.00000  130.00000
+ 135.00000  140.00000  145.00000  150.00000  155.00000  160.00000  165.00000
+ 170.00000  175.00000
+
+Grid box latitude centers [degrees]: 
+ -89.00000  -86.00000  -82.00000  -78.00000  -74.00000  -70.00000  -66.00000
+ -62.00000  -58.00000  -54.00000  -50.00000  -46.00000  -42.00000  -38.00000
+ -34.00000  -30.00000  -26.00000  -22.00000  -18.00000  -14.00000  -10.00000
+  -6.00000   -2.00000    2.00000    6.00000   10.00000   14.00000   18.00000
+  22.00000   26.00000   30.00000   34.00000   38.00000   42.00000   46.00000
+  50.00000   54.00000   58.00000   62.00000   66.00000   70.00000   74.00000
+  78.00000   82.00000   86.00000   89.00000
+
+%%%%%%%%%%%% USER-DEFINED GRID %%%%%%%%%%%%
+
+  XMinOffset :            0
+  XMaxOffset :           71
+  YMinOffset :            0
+  YMaxOffset :           45
+
+
+Grid box longitude centers [degrees]: 
+-180.00000 -175.00000 -170.00000 -165.00000 -160.00000 -155.00000 -150.00000
+-145.00000 -140.00000 -135.00000 -130.00000 -125.00000 -120.00000 -115.00000
+-110.00000 -105.00000 -100.00000  -95.00000  -90.00000  -85.00000  -80.00000
+ -75.00000  -70.00000  -65.00000  -60.00000  -55.00000  -50.00000  -45.00000
+ -40.00000  -35.00000  -30.00000  -25.00000  -20.00000  -15.00000  -10.00000
+  -5.00000    0.00000    5.00000   10.00000   15.00000   20.00000   25.00000
+  30.00000   35.00000   40.00000   45.00000   50.00000   55.00000   60.00000
+  65.00000   70.00000   75.00000   80.00000   85.00000   90.00000   95.00000
+ 100.00000  105.00000  110.00000  115.00000  120.00000  125.00000  130.00000
+ 135.00000  140.00000  145.00000  150.00000  155.00000  160.00000  165.00000
+ 170.00000  175.00000
+
+Grid box longitude edges [degrees]: 
+-182.50000 -177.50000 -172.50000 -167.50000 -162.50000 -157.50000 -152.50000
+-147.50000 -142.50000 -137.50000 -132.50000 -127.50000 -122.50000 -117.50000
+-112.50000 -107.50000 -102.50000  -97.50000  -92.50000  -87.50000  -82.50000
+ -77.50000  -72.50000  -67.50000  -62.50000  -57.50000  -52.50000  -47.50000
+ -42.50000  -37.50000  -32.50000  -27.50000  -22.50000  -17.50000  -12.50000
+  -7.50000   -2.50000    2.50000    7.50000   12.50000   17.50000   22.50000
+  27.50000   32.50000   37.50000   42.50000   47.50000   52.50000   57.50000
+  62.50000   67.50000   72.50000   77.50000   82.50000   87.50000   92.50000
+  97.50000  102.50000  107.50000  112.50000  117.50000  122.50000  127.50000
+ 132.50000  137.50000  142.50000  147.50000  152.50000  157.50000  162.50000
+ 167.50000  172.50000  177.50000
+
+Grid box latitude centers [degrees]: 
+ -89.00000  -86.00000  -82.00000  -78.00000  -74.00000  -70.00000  -66.00000
+ -62.00000  -58.00000  -54.00000  -50.00000  -46.00000  -42.00000  -38.00000
+ -34.00000  -30.00000  -26.00000  -22.00000  -18.00000  -14.00000  -10.00000
+  -6.00000   -2.00000    2.00000    6.00000   10.00000   14.00000   18.00000
+  22.00000   26.00000   30.00000   34.00000   38.00000   42.00000   46.00000
+  50.00000   54.00000   58.00000   62.00000   66.00000   70.00000   74.00000
+  78.00000   82.00000   86.00000   89.00000
+
+Grid box latitude edges [degrees]: 
+ -90.00000  -88.00000  -84.00000  -80.00000  -76.00000  -72.00000  -68.00000
+ -64.00000  -60.00000  -56.00000  -52.00000  -48.00000  -44.00000  -40.00000
+ -36.00000  -32.00000  -28.00000  -24.00000  -20.00000  -16.00000  -12.00000
+  -8.00000   -4.00000    0.00000    4.00000    8.00000   12.00000   16.00000
+  20.00000   24.00000   28.00000   32.00000   36.00000   40.00000   44.00000
+  48.00000   52.00000   56.00000   60.00000   64.00000   68.00000   72.00000
+  76.00000   80.00000   84.00000   88.00000   90.00000
+
+SIN( grid box latitude edges )
+  -1.00000   -0.99939   -0.99452   -0.98481   -0.97030   -0.95106   -0.92718
+  -0.89879   -0.86603   -0.82904   -0.78801   -0.74314   -0.69466   -0.64279
+  -0.58779   -0.52992   -0.46947   -0.40674   -0.34202   -0.27564   -0.20791
+  -0.13917   -0.06976    0.00000    0.06976    0.13917    0.20791    0.27564
+   0.34202    0.40674    0.46947    0.52992    0.58779    0.64279    0.69466
+   0.74314    0.78801    0.82904    0.86603    0.89879    0.92718    0.95106
+   0.97030    0.98481    0.99452    0.99939    1.00000
+===============================================================================
+SPECIES NAMES AND INDICES
+
+Name               ModelId  DryDepId  WetDepId  PhotolId HygGrthId  KppSpcId
+-------------------------------------------------------------------------------
+ACET                     1         1         -         1         -       221
+ACTA                     2         2         1         -         -       219
+AERI                     3         3         2         -         -         4
+AL2O3                    4         4         3         -         1         -
+ALD2                     5         5         4         2         -       264
+ALK4                     6         -         -         -         -       114
+AONITA                   7         6         5         -         -         5
+AROMP4                   8         7         6         -         -       159
+AROMP5                   9         8         7         -         -       148
+ATOOH                   10         9         8         3         -       196
+BALD                    11        10         9         4         -       101
+BCPI                    12        11        10         -         2         -
+BCPO                    13        12        11         -         -         -
+BENZ                    14         -         -         -         -        64
+BENZP                   15        13        12         5         -       107
+Br                      16         -         -         -         -       273
+Br2                     17        14        13         6         -       128
+BrCl                    18        15        14         7         -       135
+BrNO2                   19         -         -         8         -        51
+BrNO3                   20        16         -         9         -       176
+BrO                     21         -         -        10         -       274
+BrSALA                  22        17        15         -         -       283
+BrSALC                  23        18        16         -         -       277
+BUTDI                   24         -         -         -         -         6
+BZCO3H                  25        19        17        11         -        70
+BZPAN                   26        20        18         -         -        97
+C2H2                    27         -         -         -         -        58
+C2H4                    28         -         -         -         -        76
+C2H6                    29         -         -         -         -       161
+C3H8                    30         -         -         -         -       124
+CCl4                    31         -         -        12         -        52
+CFC11                   32         -         -        13         -        53
+CFC113                  33         -         -        14         -        55
+CFC114                  34         -         -        15         -        56
+CFC115                  35         -         -        16         -        57
+CFC12                   36         -         -        17         -        54
+CH2Br2                  37         -         -        18         -        71
+CH2Cl2                  38         -         -        19         -        72
+CH2I2                   39         -         -        20         -         1
+CH2IBr                  40         -         -        21         -         2
+CH2ICl                  41         -         -        22         -         3
+CH2O                    42        21        19        23         -       263
+CH3Br                   43         -         -        24         -       100
+CH3CCl3                 44         -         -        25         -        43
+CH3Cl                   45         -         -        26         -       149
+CH3I                    46         -         -        27         -        46
+CH4                     47         -         -         -         -       190
+CHBr3                   48         -         -        28         -        77
+CHCl3                   49         -         -        29         -        78
+Cl                      50         -         -         -         -       290
+Cl2                     51        22         -        30         -       197
+Cl2O2                   52         -         -        31         -        75
+ClNO2                   53        23         -        32         -       235
+ClNO3                   54        24         -        33         -       262
+ClO                     55        25         -        34         -       285
+ClOO                    56        26         -        35         -       103
+CLOCK                   57         -         -         -         -         -
+CO                      58         -         -         -         -       267
+CSL                     59        27        20         -         -       115
+DMS                     60         -         -         -         -        90
+DST1                    61        28        21         -         -         -
+DST2                    62        29        22         -         -         -
+DST3                    63        30        23         -         -         -
+DST4                    64        31        24         -         -         -
+EOH                     65        32        25         -         -       133
+ETHLN                   66        33        26        36         -       208
+ETHN                    67        34        27         -         -        68
+ETHP                    68        35        28        37         -       120
+ETNO3                   69        36         -        38         -        96
+ETP                     70        37        29        39         -       110
+FURA                    71        38        30         -         -        41
+GLYC                    72        39        31        40         -       236
+GLYX                    73        40        32        41         -       223
+H1211                   74         -         -        42         -        59
+H1301                   75         -         -        43         -        47
+H2402                   76         -         -        44         -        48
+H2O                     77         -         -         -         -       278
+H2O2                    78        41        33        45         -       212
+HAC                     79        42        34        46         -       250
+HBr                     80        43        35         -         -       289
+HC5A                    81        44        36        47         -       192
+HCFC123                 82         -         -        48         -        81
+HCFC141b                83         -         -        49         -        82
+HCFC142b                84         -         -        50         -        83
+HCFC22                  85         -         -        51         -        84
+HCl                     86        45        37         -         -       275
+HCOOH                   87        46        38         -         -       211
+HI                      88        47        39         -         -        69
+HMHP                    89        48        40        52         -        85
+HMML                    90        49        41         -         -       105
+HMS                     91        50        42         -         -        86
+HNO2                    92         -         -        53         -       193
+HNO3                    93        51        43        54         -       265
+HNO4                    94         -         -        55         -       102
+HOBr                    95        52        44        56         -       260
+HOCl                    96        53        45        57         -       271
+HOI                     97        54        46        58         -       268
+HONIT                   98        55        47        59         -       134
+HPALD1                  99        56         -        60         -       186
+HPALD2                 100        57         -        61         -       188
+HPALD3                 101        58         -        62         -       129
+HPALD4                 102        59         -        63         -       127
+HPETHNL                103        60        48        64         -       172
+I                      104         -         -         -         -       269
+I2                     105        61        49        65         -       143
+I2O2                   106        62        50        66         -        44
+I2O3                   107        63        51        67         -        49
+I2O4                   108        64        52        68         -        42
+IBr                    109        65        53        69         -        73
+ICHE                   110        66        54         -         -       174
+ICl                    111        67        55        70         -        99
+ICN                    112        68        56        71         -       240
+ICPDH                  113        69        57        72         -       206
+IDC                    114        70         -         -         -       109
+IDCHP                  115        71        58        73         -       125
+IDHDP                  116        72        59        74         -       141
+IDHPE                  117        73        60        75         -       164
+IDN                    118        74        61        76         -       243
+IEPOXA                 119        75        62         -         -       130
+IEPOXB                 120        76        63         -         -       131
+IEPOXD                 121        77        64         -         -       116
+IHN1                   122        78        65        77         -       220
+IHN2                   123        79        66        78         -       139
+IHN3                   124        80        67        79         -       140
+IHN4                   125        81        68        80         -       214
+INDIOL                 126        82        69         -         -         8
+INO                    127         -         -        81         -        60
+INPB                   128        83        70        82         -       181
+INPD                   129        84        71        83         -       151
+IO                     130         -         -        84         -       227
+IONITA                 131        85        72         -         -        98
+IONO                   132        86        73        85         -       203
+IONO2                  133        87        74        86         -       270
+IPRNO3                 134        88         -        87         -        87
+ISALA                  135        89        75         -         -         9
+ISALC                  136        90        76         -         -        10
+ISOP                   137         -         -         -         -       224
+ITCN                   138        91        77        88         -       213
+ITHN                   139        92        78        89         -       242
+LIMO                   140        93        79         -         -       170
+LVOC                   141        94        80         -         -        24
+LVOCOA                 142        95        81         -         -        23
+MACR                   143        96         -        90         -       251
+MACR1OOH               144        97        82        91         -       136
+MAP                    145        98        83        92         -        88
+MCRDH                  146        99        84         -         -       132
+MCRENOL                147       100        85        93         -       163
+MCRHN                  148       101        86        94         -       200
+MCRHNB                 149       102        87        95         -       175
+MCRHP                  150       103        88        96         -       231
+MCT                    151       104        89         -         -       142
+MEK                    152         -        90        97         -       226
+MENO3                  153       105         -        98         -        89
+MGLY                   154       106        91        99         -       233
+MOH                    155       107        92         -         -       218
+MONITA                 156       108        93         -         -        45
+MONITS                 157       109        94       100         -       178
+MONITU                 158       110        95       101         -       199
+MP                     159         -        96       102         -       137
+MPAN                   160       111        97       103         -       153
+MPN                    161         -        98       104         -        74
+MSA                    162       112        99         -         -        28
+MTPA                   163       113       100         -         -       154
+MTPO                   164       114       101         -         -       155
+MVK                    165       115       102       105         -       248
+MVKDH                  166       116       103         -         -       117
+MVKHC                  167       117       104       106         -       169
+MVKHCB                 168       118       105       107         -       185
+MVKHP                  169       119       106       108         -       230
+MVKN                   170       120       107       109         -       241
+MVKPC                  171       121       108       110         -       156
+N2O                    172         -         -       111         -        61
+N2O5                   173       122         -       112         -       173
+NH3                    174       123       109         -         -         -
+NH4                    175       124       110         -         -         -
+NIT                    176       125       111       113         -        62
+NITs                   177       126       112       114         -        63
+NO                     178         -         -       115         -       279
+NO2                    179       127         -       116         -       291
+NO3                    180         -         -       117         -       281
+NPHEN                  181       128       113       118         -       210
+NPRNO3                 182       129         -       119         -        91
+O3                     183       130         -       120         -       282
+OClO                   184         -         -       121         -       111
+OCPI                   185       131       114         -         3         -
+OCPO                   186       132       115         -         -         -
+OCS                    187         -         -       122         -        66
+OIO                    188         -         -       123         -        92
+PAN                    189       133       116       124         -        67
+pFe                    190       134       117         -         -         -
+PHEN                   191       135       118         -         -       118
+PIP                    192         -         -       125         -       119
+PP                     193       136       119       126         -       112
+PPN                    194       137       120         -         -        50
+PROPNN                 195       138       121       127         -       198
+PRPE                   196         -       122         -         -       253
+PRPN                   197       139       123       128         -       113
+PYAC                   198       140       124       129         -       104
+R4N2                   199       141       125       130         -       202
+R4P                    200       142       126       131         -        93
+RA3P                   201       143       127       132         -        94
+RB3P                   202       144       128       133         -        95
+RCHO                   203         -         -       134         -       259
+RIPA                   204       145       129       135         -       157
+RIPB                   205       146       130       136         -       162
+RIPC                   206       147       131       137         -       171
+RIPD                   207       148       132       138         -       165
+RP                     208       149       133       139         -       106
+SALA                   209       150       134         -         4         -
+SALAAL                 210       151       135         -         -       147
+SALACL                 211       152       136         -         -       280
+SALC                   212       153       137         -         5         -
+SALCAL                 213       154       138         -         -       138
+SALCCL                 214       155       139         -         -       287
+SO2                    215       156       140         -         -       276
+SO4                    216       157       141       140         6       122
+SO4s                   217       158       142         -         -        29
+SOAGX                  218       159       143         -         -        30
+SOAIE                  219       160       144         -         -        31
+SOAP                   220         -         -         -         -         -
+SOAS                   221       161       145         -         -         -
+TOLU                   222         -         -         -         -        79
+XYLE                   223         -         -         -         -        80
+CO2                    224         -         -         -         -         7
+LBRO2H                 225         -         -         -         -        11
+LBRO2N                 226         -         -         -         -        12
+BRO2                   227         -         -         -         -        13
+LISOPOH                228         -         -         -         -        14
+LISOPNO3               229         -         -         -         -        15
+LNRO2H                 230         -         -         -         -        16
+LNRO2N                 231         -         -         -         -        17
+NRO2                   232         -         -         -         -        18
+NAP                    233         -         -         -         -        19
+LTRO2H                 234         -         -         -         -        20
+LTRO2N                 235         -         -         -         -        21
+TRO2                   236         -         -         -         -        22
+LXRO2H                 237         -         -         -         -        25
+LXRO2N                 238         -         -         -         -        26
+XRO2                   239         -         -         -         -        27
+PH2SO4                 240         -         -         -         -        32
+PSO4AQ                 241         -         -         -         -        33
+POx                    242         -         -         -         -        34
+LOx                    243         -         -         -         -        35
+PCO                    244         -         -         -         -        36
+LCO                    245         -         -         -         -        37
+PSO4                   246         -         -         -         -        38
+LCH4                   247         -         -         -         -        39
+PH2O2                  248         -         -         -         -        40
+N                      249         -         -         -         -        65
+ETO                    250         -         -         -         -       108
+HPALD1OO               251         -         -         -         -       121
+HPALD2OO               252         -         -         -         -       123
+INA                    253         -         -         -         -       126
+C4HVP1                 254         -         -         -         -       144
+C4HVP2                 255         -         -         -         -       145
+IDNOO                  256         -         -         -         -       146
+ICNOO                  257         -         -         -         -       150
+ISOPNOO2               258         -         -         -         -       152
+ROH                    259         -         -         -         -       158
+BENZO                  260         -         -         -         -       160
+IDHNDOO1               261         -         -         -         -       166
+ISOPNOO1               262         -         -         -         -       167
+IDHNDOO2               263         -         -         -         -       168
+H                      264         -         -         -         -       177
+ETOO                   265         -         -         -         -       179
+BZCO3                  266         -         -         -         -       180
+IHPOO1                 267         -         -         -         -       182
+IHPOO2                 268         -         -         -         -       183
+AROMRO2                269         -         -         -         -       184
+IHPOO3                 270         -         -         -         -       187
+IHPNDOO                271         -         -         -         -       189
+BENZO2                 272         -         -         -         -       191
+ICHOO                  273         -         -         -         -       194
+CH3CHOO                274         -         -         -         -       195
+PRN1                   275         -         -         -         -       201
+MVKOHOO                276         -         -         -         -       204
+MCROHOO                277         -         -         -         -       205
+MACR1OO                278         -         -         -         -       207
+PO2                    279         -         -         -         -       209
+OLNN                   280         -         -         -         -       215
+OLND                   281         -         -         -         -       216
+ETO2                   282         -         -         -         -       217
+IHPNBOO                283         -         -         -         -       222
+LIMO2                  284         -         -         -         -       225
+IEPOXAOO               285         -         -         -         -       228
+IEPOXBOO               286         -         -         -         -       229
+IDHNBOO                287         -         -         -         -       232
+CH2OO                  288         -         -         -         -       234
+A3O2                   289         -         -         -         -       237
+PIO2                   290         -         -         -         -       238
+OTHRO2                 291         -         -         -         -       239
+IHOO4                  292         -         -         -         -       244
+IHOO1                  293         -         -         -         -       245
+INO2D                  294         -         -         -         -       246
+INO2B                  295         -         -         -         -       247
+MACRNO2                296         -         -         -         -       249
+ATO2                   297         -         -         -         -       252
+KO2                    298         -         -         -         -       254
+RCO3                   299         -         -         -         -       255
+R4O2                   300         -         -         -         -       256
+R4N1                   301         -         -         -         -       257
+B3O2                   302         -         -         -         -       258
+MCO3                   303         -         -         -         -       261
+MO2                    304         -         -         -         -       266
+O1D                    305         -         -         -         -       272
+HO2                    306         -         -         -         -       284
+OH                     307         -         -         -         -       286
+O                      308         -         -         -         -       288
+H2                     309         -         -         -         -       292
+N2                     310         -         -         -         -       293
+O2                     311         -         -       141         -       294
+RCOOH                  312         -         -         -         -       295
+===============================================================================
+===============================================================================
+V E R T I C A L   G R I D   S E T U P
+
+INIT_PRESSURE: Vertical coordinates!
+
+Ap 
+   0.000000    0.048048    6.593752   13.134800   19.613110   26.092010
+  32.570810   38.982010   45.339010   51.696110   58.053210   64.362640
+  70.621980   78.834220   89.099920   99.365210  109.181700  118.958600
+ 128.695900  142.910000  156.260000  169.609000  181.619000  193.097000
+ 203.259000  212.150000  218.776000  223.898000  224.363000  216.865000
+ 201.192000  176.930000  150.393000  127.837000  108.663000   92.365720
+  78.512310   56.387910   40.175410   28.367810   19.791600    9.292942
+   4.076571    1.650790    0.616779    0.211349    0.066000    0.010000
+
+Bp 
+   1.000000    0.984952    0.963406    0.941865    0.920387    0.898908
+   0.877429    0.856018    0.834661    0.813304    0.791947    0.770637
+   0.749378    0.721166    0.685900    0.650635    0.615818    0.581041
+   0.546304    0.494590    0.443740    0.392891    0.343381    0.294403
+   0.246741    0.200350    0.156224    0.113602    0.063720    0.028010
+   0.006960    0.000000    0.000000    0.000000    0.000000    0.000000
+   0.000000    0.000000    0.000000    0.000000    0.000000    0.000000
+   0.000000    0.000000    0.000000    0.000000    0.000000    0.000000
+===============================================================================
+READ_DRYDEP_INPUTS: Opening /shared/ucl/depts/uptrop/uclgcfs/gcgrid/gcdata/ExtData/CHEM_INPUTS/Olson_Land_Map_201203/Olson_2001_Drydep_Inputs.nc
+===============================================================================
+GEOS-Chem ERROR: WARNING: aerosol diagnostics not defined for NRHAER greater 
+than 5!
+Init_Aerosol in aerosol_mod.F90
+===============================================================================
+
+===============================================================================
+GEOS-Chem ERROR: Error encountered in "Init_Aerosol"!
+ -> at GC_Init_Extra (in module GeosCore/gc_environment_mod.F90)
+===============================================================================
+
+===============================================================================
+GEOS-CHEM ERROR: Error encountered in "GC_Init_Extra"!
+STOP at  -> at GEOS-Chem (in GeosCore/main.F90)
+===============================================================================

@@ -388,9 +388,6 @@ aerosols:
   sulfate:
     activate: true
     metal_cat_SO2_oxidation: true
-  
-  alumina:
-    activate: true
 
 #============================================================================
 # Settings for diagnostics (other than HISTORY and HEMCO)

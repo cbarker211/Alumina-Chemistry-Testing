@@ -16,7 +16,7 @@
 #      in the OutputDir sub-folder of this run directory.
 #
 #============================================================================
-EXPID:  ./OutputDir/norrtmg_aluminachem/GEOSChem
+EXPID:  ./OutputDir/norrtmg_aluminachem5/GEOSChem
 
 #==============================================================================
 # %%%%% COLLECTION NAME DECLARATIONS %%%%%
@@ -71,7 +71,7 @@ COLLECTIONS: 'Restart',
 #
 # Available for all simulations
 #==============================================================================
-  Restart.filename:           './Restarts/norrtmg_aluminachem/GEOSChem.Restart.%y4%m2%d2_%h2%n2z.nc4',
+  Restart.filename:           './Restarts/norrtmg_aluminachem5/GEOSChem.Restart.%y4%m2%d2_%h2%n2z.nc4',
   Restart.frequency:          00000001 000000
   Restart.duration:           00000001 000000
   Restart.mode:               'instantaneous'
@@ -209,6 +209,7 @@ COLLECTIONS: 'Restart',
                               'Chem_AeroAreaOC               ',
                               'Chem_AeroAreaSSA              ',
                               'Chem_AeroAreaSSC              ',
+                              'Chem_AeroAreaALU              ',
                               #'Chem_AeroAreaBGSULF           ',
                               #'Chem_AeroAreaICEI             ',
                               'Chem_AeroRadiMDUST1           ',
@@ -223,6 +224,7 @@ COLLECTIONS: 'Restart',
                               'Chem_AeroRadiOC               ',
                               'Chem_AeroRadiSSA              ',
                               'Chem_AeroRadiSSC              ',
+                              'Chem_AeroRadiALU              ',
                               #'Chem_AeroRadiBGSULF           ',
                               #'Chem_AeroRadiICEI             ',
                               'Chem_WetAeroAreaMDUST1        ',
@@ -237,6 +239,7 @@ COLLECTIONS: 'Restart',
                               'Chem_WetAeroAreaOC            ',
                               'Chem_WetAeroAreaSSA           ',
                               'Chem_WetAeroAreaSSC           ',
+                              'Chem_WetAeroAreaALU           ',
                               #'Chem_WetAeroAreaBGSULF        ',
                               #'Chem_WetAeroAreaICEI          ',
                               'Chem_WetAeroRadiMDUST1        ',
@@ -251,6 +254,7 @@ COLLECTIONS: 'Restart',
                               'Chem_WetAeroRadiOC            ',
                               'Chem_WetAeroRadiSSA           ',
                               'Chem_WetAeroRadiSSC           ',
+                              'Chem_WetAeroRadiALU           ',
                               #'Chem_WetAeroRadiBGSULF        ',
                               #'Chem_WetAeroRadiICEI          ',
                               #'Chem_StatePSC                 ',

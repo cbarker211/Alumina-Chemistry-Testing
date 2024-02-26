@@ -42,3 +42,13 @@ HISTORY.rc
   - ConcAfterChem turned on
   - RRTMG outputs changed to include TOA, Trop and AOD
   - Changed timings to 1 day to compare with/without new alumina chemistry.
+
+norrtmg_aluminachem
+  - This run is with the new alumina chemistry, but without any rocket emissions and without RRTMG.
+
+norrtmg_normalchem
+  - This run is the same as above but with the standard GEOS-Chem chemistry.
+  - This run requires a different version of:
+    - species_database.yml: no alumina
+    - geoschem_config.yml : no alumina flag or alumina as transported species
+    - HISTORY.rc          : updated output locations

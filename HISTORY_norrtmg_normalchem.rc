@@ -16,7 +16,7 @@
 #      in the OutputDir sub-folder of this run directory.
 #
 #============================================================================
-EXPID:  ./OutputDir/norrtmg/normalchem_photolysison/GEOSChem
+EXPID:  ./OutputDir/norrtmg/normalchem_aermassout/GEOSChem
 
 #==============================================================================
 # %%%%% COLLECTION NAME DECLARATIONS %%%%%
@@ -31,7 +31,7 @@ COLLECTIONS: 'Restart',
              'Metrics',
              'SpeciesConc',
              #'AdvFluxVert',
-             #'AerosolMass',
+             'AerosolMass',
              'Aerosols',
              ##'Budget',
              ##'CloudConvFlux',
@@ -71,7 +71,7 @@ COLLECTIONS: 'Restart',
 #
 # Available for all simulations
 #==============================================================================
-  Restart.filename:           './Restarts/norrtmg/normalchem_photolysison/GEOSChem.Restart.%y4%m2%d2_%h2%n2z.nc4',
+  Restart.filename:           './Restarts/norrtmg/normalchem_aermassout/GEOSChem.Restart.%y4%m2%d2_%h2%n2z.nc4',
   Restart.frequency:          00000001 000000
   Restart.duration:           00000001 000000
   Restart.mode:               'instantaneous'
@@ -148,8 +148,8 @@ COLLECTIONS: 'Restart',
 # Available for full-chemistry and aerosol-only simulations
 #==============================================================================
   AerosolMass.template:       '%y4%m2%d2_%h2%n2z.nc4',
-  AerosolMass.frequency:      00000100 000000
-  AerosolMass.duration:       00000100 000000
+  AerosolMass.frequency:      00000001 000000
+  AerosolMass.duration:       00000001 000000
   AerosolMass.mode:           'time-averaged'
   AerosolMass.fields:         'AerMassASOA                  ',
                               'AerMassBC                    ',

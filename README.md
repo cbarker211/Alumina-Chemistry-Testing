@@ -22,6 +22,7 @@ Log files split into:
   - chem_check (comparing runs with/without changes to check code is OK).
   - stepping (another version of testing this time only changing a few files at a time)
   - 23_02_24 (latest version of stepping on the dust_test branch - now called feature/al2o3-update)
+  - 27_02_24 (now testing the gravitational settling)
 As we have advanced to a new version of the model and new species have been added, we have to use a new restart file for v14.3.0.
 Added a new AL2O3 species to this restart file (conc=0, see Restarts/add_species.py), and symbolic link for this to start from 1/1/20.
 
@@ -57,3 +58,10 @@ normalchem
     - geoschem_config.yml : no alumina as transported species
     - HISTORY.rc          : updated output locations
     - HEMCO_Config.rc stays the same.
+
+gravsettlechem3 is while im on leave, with all the gravitational settling updates:
+  - after the second commit.
+  - BCP, DST1-4, AL2O3 added.
+  - BCPI fixed, and alumina radius fixed.
+
+Switching to /home/ucfacb0/rundirs/Rockets/gc_4x5_47L_merra2_fullchem_main to test stratospheric adjustment.

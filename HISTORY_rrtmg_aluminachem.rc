@@ -16,7 +16,7 @@
 #      in the OutputDir sub-folder of this run directory.
 #
 #============================================================================
-EXPID:  ./OutputDir/rrtmg/aluminachem2/GEOSChem
+EXPID:  ./OutputDir/rrtmg/gravsettlechem/GEOSChem
 
 #==============================================================================
 # %%%%% COLLECTION NAME DECLARATIONS %%%%%
@@ -71,7 +71,7 @@ COLLECTIONS: 'Restart',
 #
 # Available for all simulations
 #==============================================================================
-  Restart.filename:           './Restarts/rrtmg/aluminachem2/GEOSChem.Restart.%y4%m2%d2_%h2%n2z.nc4',
+  Restart.filename:           './Restarts/rrtmg/gravsettlechem/GEOSChem.Restart.%y4%m2%d2_%h2%n2z.nc4',
   Restart.frequency:          00000001 000000
   Restart.duration:           00000001 000000
   Restart.mode:               'instantaneous'

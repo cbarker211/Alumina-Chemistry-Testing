@@ -21,3 +21,6 @@ BenchmarkResults
 rundir.version
 runScriptSamples
 README
+compile_gcclassic_v14-1-0.sh
+run_gcclassic_v14-1-0*
+OutputDir/__pycache__/

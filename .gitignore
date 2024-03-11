@@ -24,3 +24,7 @@ README
 compile_gcclassic_v14-1-0.sh
 run_gcclassic_v14-1-0*
 OutputDir/__pycache__/
+OutputDir/norrtmg/aluminachem*/GEOSChem.SpeciesConc.20200101_0000z.nc4
+OutputDir/norrtmg/normalchem_photolysisoff/GEOSChem.SpeciesConc.20200101_0000z.nc4
+OutputDir/norrtmg/normalchem_aermassout/GEOSChem.SpeciesConc.20200101_0000z.nc4
+OutputDir/norrtmg/gravsettlechem3/GEOSChem.SpeciesConc.20200101_0000z.nc4
